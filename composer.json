@@ -1,0 +1,33 @@
+{
+    "name": "anteris-dev/laravel-autotask-client",
+    "description": "Integrates the Autotask client into Laravel.",
+    "autoload": {
+        "psr-4": {
+            "Anteris\\Autotask\\Laravel\\": "./src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "./tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "license": "MIT",
+    "require": {
+        "anteris-dev/autotask-client": "^0.3.1",
+        "illuminate/support": "^7.27"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Anteris\\Autotask\\Laravel\\ServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5.5",
+        "phpunit/phpunit": "^9.3"
+    }
+}
