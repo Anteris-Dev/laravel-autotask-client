@@ -21,7 +21,7 @@ class ServiceProvider extends LaravelServiceProvider
         $this->app->singleton(Client::class, function ($app) {
             return new Client(
                 $app['config']['autotask.username'],
-                $app['config']['autotask.password'],
+                $app['config']['autotask.secret'],
                 $app['config']['autotask.integration_code'],
                 $app['config']['autotask.zone_url']
             );

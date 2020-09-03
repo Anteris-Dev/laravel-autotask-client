@@ -9,7 +9,7 @@ abstract class AbstractTestCase extends TestCase
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('autotask.username', 'test@test.com');
-        $app['config']->set('autotask.password', 'testpassword');
+        $app['config']->set('autotask.secret', 'testpassword');
         $app['config']->set('autotask.integration_code', 'testintegrationcode');
         $app['config']->set('autotask.zone_url', 'https://randomurl.com');
     }

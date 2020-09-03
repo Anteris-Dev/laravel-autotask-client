@@ -4,9 +4,16 @@ This package bridges the Autotask client to Laravel by injecting it into the app
 # To Install
 Run `composer require anteris-dev/laravel-autotask-client`.
 
-To publish the configuration file, use the command `php artisan vendor:publish --provider 'Anteris\Autotask\Laravel\ServiceProvider'`. Now you can enter your Autotask API information into the configuration file found at 'config/autotask.php'.
+To publish the configuration file, use the command `php artisan vendor:publish --provider 'Anteris\Autotask\Laravel\ServiceProvider'`. Now you can enter your Autotask API information in the configuration file found at _config/autotask.php_ or preferablly, in your _.env_ file using the keys below.
 
-To register the facade so you may use the client like this: `Autotask::tickets()->findById(0)` add the following line to the 'aliases' key in the Laravel file 'config/app.php'.
+```
+AUTOTASK_USERNAME=username
+AUTOTASK_SECRET=secret
+AUTOTASK_INTEGRATION_CODE=integration-code
+AUTOTASK_ZONE_URL=https://example.com
+```
+
+To register the facade so you may use the client like this: `Autotask::tickets()->findById(0)` add the following line to the 'aliases' key in the Laravel file _config/app.php_.
 
 ```php
 'Autotask' => Anteris\Autotask\Laravel\Facade::class,

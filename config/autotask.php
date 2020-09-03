@@ -22,7 +22,7 @@ return [
     | framework needs to place a request to Autotask.
     |
     */
-    'password' => env('AUTOTASK_PASSWORD', null),
+    'secret' => env('AUTOTASK_SECRET', null),
 
     /*
     |--------------------------------------------------------------------------
