@@ -105,6 +105,7 @@ class Contact extends AutotaskModel
 
 // Relationships can be referenced like normal Laravel models:
 $contact = Contact::find(1);
+
 echo $contact->company->companyName;
 
 ```
