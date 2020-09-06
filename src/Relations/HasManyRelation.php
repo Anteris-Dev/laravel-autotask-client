@@ -35,7 +35,8 @@ class HasManyRelation extends AbstractRelation
     )
     {
         // This section removes the namespace and keeps the class name.
-        $parentClassName = array_pop(explode('\\', $parentClass));
+        $parentClassName = explode('\\', $parentClass);
+        $parentClassName = array_pop($parentClassName);
 
         // This section determines the relationship information
         $this->class = $class;
