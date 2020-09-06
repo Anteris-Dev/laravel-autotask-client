@@ -119,6 +119,7 @@ class AutotaskModel extends Model
             (string) $this->query,
             function () {
                 $items = $this->query->get();
+                $array = [];
 
                 foreach ($items as $key => $item) {
                     // If we are caching stuff, throw each item in the cache
@@ -126,15 +127,15 @@ class AutotaskModel extends Model
                         Cache::set("{$this->endpoint}Entity-{$item->id}", $item, now()->addSeconds($this->cache_time));
                     }
 
-                    $items[$key] = new static($item->toArray());
+                    $array[$key] = new static($item->toArray());
                 }
 
-                return $items;
+                return $array;
             }
         );
 
         unset($this->query);
-        return collect($result->toArray());
+        return collect($result);
     }
 
     /**
