@@ -42,9 +42,9 @@ class HasOneRelation extends AbstractRelation
         }
 
         if (!$localID) {
-            $this->localID = 'id';
-        } else {
             $this->localID = Str::camel($className) . 'ID';
+        } else {
+            $this->localID = $localID;
         }
     }
 
