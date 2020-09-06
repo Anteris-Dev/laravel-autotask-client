@@ -36,12 +36,12 @@ class AutotaskModel extends Model
     protected function startActionWithCacheInMind(string $cacheKey, callable $callback)
     {
         // Scenario 1: We aren't caching stuff
-        if (! $this->cache_time) {
+        if (!$this->cache_time) {
             return $callback();
         }
 
         // Scenario 2: We are caching stuff but don't have it cached
-        if (! Cache::has($cacheKey)) {
+        if (!Cache::has($cacheKey)) {
             Cache::set(
                 $cacheKey,
                 $callback(),
@@ -63,7 +63,7 @@ class AutotaskModel extends Model
         }
 
         $result = $this->startActionWithCacheInMind(
-            (string) $this->query,
+            "count-$this->query",
             function () {
                 return $this->query->count();
             }
@@ -111,12 +111,12 @@ class AutotaskModel extends Model
      */
     public function executeGet()
     {
-        if (! isset($this->query)) {
+        if (!isset($this->query)) {
             throw new Exception('Unable to make a get request without a query!');
         }
 
         $result = $this->startActionWithCacheInMind(
-            (string) $this->query,
+            "get-$this->query",
             function () {
                 $items = $this->query->get();
                 $array = [];
@@ -147,12 +147,12 @@ class AutotaskModel extends Model
      */
     public function executeLoop(callable $callback)
     {
-        if (! $this->query) {
+        if (!$this->query) {
             throw new Exception('Unable to make a loop request without a query!');
         }
 
         $result = $this->startActionWithCacheInMind(
-            (string) $this->query,
+            "loop-$this->query",
             function () {
                 $result = [];
 
@@ -179,7 +179,8 @@ class AutotaskModel extends Model
      * 
      * @author Aidan Casey <aidan.casey@anteris.com>
      */
-    public function executeRecords(int $records) {
+    public function executeRecords(int $records)
+    {
         if (!$this->query) {
             $this->query = Autotask::{Str::pluralStudly($this->endpoint)}()->query()->where($records);
         } else {
@@ -201,7 +202,7 @@ class AutotaskModel extends Model
         $udf = false,
         $conjuction = 'AND'
     ) {
-        if (! $this->query) {
+        if (!$this->query) {
             $this->query = Autotask::{Str::pluralStudly($this->endpoint)}()->query()->where(
                 $field,
                 $operator,
