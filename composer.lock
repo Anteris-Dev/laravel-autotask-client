@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37a62137523932f9c8bd130cae5a3160",
+    "content-hash": "a31f08ab91be24daca8508558303c08c",
     "packages": [
         {
             "name": "anteris-dev/autotask-client",
@@ -536,6 +536,53 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "jenssegers/model",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/model.git",
+                "reference": "3a70a5b155a690d0dc3a063e1878d4fd7b0b5b6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/model/zipball/3a70a5b155a690d0dc3a063e1878d4fd7b0b5b6d",
+                "reference": "3a70a5b155a690d0dc3a063e1878d4fd7b0b5b6d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^5.0|^6.0|^7.0",
+                "illuminate/support": "^4.0|^5.0|^6.0|^7.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "*",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jenssegers\\Model\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "https://jenssegers.com"
+                }
+            ],
+            "description": "An Laravel eloquent-like model class, for Laravel and other frameworks",
+            "homepage": "https://github.com/jenssegers/model",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "model"
+            ],
+            "time": "2020-03-05T17:17:42+00:00"
         },
         {
             "name": "laravel/framework",

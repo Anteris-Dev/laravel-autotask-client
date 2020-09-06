@@ -47,3 +47,64 @@ Route::get('/', function () {
 ```
 
 For more information about the client, check out the documentation over [here](https://github.com/anteris-dev/autotask-client).
+
+# WIP Section
+We are currently working on a model that can be extended and interacted with like other Laravel models (relationships loaded, etc.). These models support caching the responses so requests are not constantly being made against the Autotask server. You can specify the number of seconds a response should be cached by setting the `$cache_time` variable on your model. By default this is set to 24 hours, settings this to 0 disables the cache.
+
+- **Note**: These are not compatible with Eloquent models / relationships.
+
+## To Install
+
+Run `composer require anteris-dev/laravel-autotask-client:dev-master`.
+
+## Getting Started
+Create a new model by extending the Autotask model.
+
+```php
+
+use Anteris\Autotask\Laravel\Models\AutotaskModel;
+
+class Ticket extends AutotaskModel
+{
+    protected string $endpoint = 'Tickets'; // Must be the plural form of the endpoint
+    protected int $cache_time  = 86400;     // 24 hours in seconds
+}
+
+// Supported actions:
+Ticket::count(); // Used like the count in the query builder
+Ticket::find();  // Array of IDs or an ID
+Ticket::get(); // Used like the get in the query builder
+Ticket::loop(); // Used like the loop in the query builder
+Ticket::where(); // Used like the where in the query builder
+Ticket::orWhere(); // Used like the orWhere in the query builder
+
+```
+
+## Defining Relationships
+Current belongsTo() and hasMany() relationships amongst other Autotask models is supported. These are defined as shown below.
+
+```php
+
+use Anteris\Autotask\Laravel\Models\AutotaskModel;
+
+class Contact extends AutotaskModel
+{
+    protected string $endpoint = 'Contacts'; // Must be the plural form of the endpoint
+    protected int $cache_time  = 86400;      // 24 hours in seconds
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+}
+
+// Relationships can be referenced like normal Laravel models:
+$contact = Contact::find(1);
+echo $contact->company->companyName;
+
+```
