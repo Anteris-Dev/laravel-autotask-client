@@ -2,8 +2,8 @@
 
 namespace Anteris\Autotask\Laravel\Contracts;
 
+use Anteris\Autotask\Laravel\Relations\BelongsToRelation;
 use Anteris\Autotask\Laravel\Relations\HasManyRelation;
-use Anteris\Autotask\Laravel\Relations\HasOneRelation;
 
 trait HasRelationships
 {
@@ -18,7 +18,7 @@ trait HasRelationships
      */
     public function belongsTo($class, $foreignID = null, $localID = null)
     {
-        return new HasOneRelation($class, $foreignID, $localID);
+        return new BelongsToRelation($class, $foreignID, $localID);
     }
 
     /**

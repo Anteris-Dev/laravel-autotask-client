@@ -6,7 +6,7 @@ use Anteris\Autotask\Laravel\Models\AutotaskModel;
 use Anteris\Autotask\Laravel\Relations\AbstractRelation;
 use Illuminate\Support\Str;
 
-class HasOneRelation extends AbstractRelation
+class BelongsToRelation extends AbstractRelation
 {
     /** @var string The class being related. */
     protected string $class;
@@ -57,7 +57,7 @@ class HasOneRelation extends AbstractRelation
      */
     public function resolve(AutotaskModel $model)
     {
-        if ($id = $model->getAttribute($this->localID)) {
+        if (($id = $model->getAttribute($this->localID)) != null) {
             return ($this->class)::find($id);
         }
 
