@@ -63,7 +63,7 @@ class HasManyRelation extends AbstractRelation
      */
     public function resolve(AutotaskModel $model)
     {
-        if (($id = $model->getAttribute($this->localID)) != null) {
+        if (($id = $model->getAttribute($this->localID)) !== null) {
             $result = [];
             ($this->class)::where($this->foreignID, 'eq', $id)->loop(
                 function ($item) use (&$result) {

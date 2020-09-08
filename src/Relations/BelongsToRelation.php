@@ -57,7 +57,7 @@ class BelongsToRelation extends AbstractRelation
      */
     public function resolve(AutotaskModel $model)
     {
-        if (($id = $model->getAttribute($this->localID)) != null) {
+        if (($id = $model->getAttribute($this->localID)) !== null) {
             return ($this->class)::find($id);
         }
 
