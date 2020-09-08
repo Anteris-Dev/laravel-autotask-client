@@ -18,7 +18,7 @@
     "require": {
         "anteris-dev/autotask-client": "^0.3",
         "illuminate/support": "^7.0|^8.0",
-        "jenssegers/model": "dev-master"
+        "jenssegers/model": "dev-master#324f7c6ddfda0bb5282c2413cd229cb11464b526"
     },
     "require-dev": {
         "orchestra/testbench": "^5.5",

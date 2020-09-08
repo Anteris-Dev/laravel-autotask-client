@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce4a972bc5cd44595b0fc81e2d175966",
+    "content-hash": "43d88ecaab7a48115258d5f4b5199db5",
     "packages": [
         {
             "name": "anteris-dev/autotask-client",
