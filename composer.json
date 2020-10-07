@@ -16,20 +16,14 @@
     },
     "license": "MIT",
     "require": {
-        "anteris-dev/autotask-client": "^0.3",
+        "anteris-dev/autotask-client": "^0.4",
         "illuminate/support": "^7.0|^8.0",
-        "jenssegers/model": "dev-master#324f7c6ddfda0bb5282c2413cd229cb11464b526"
+        "jenssegers/model": "^1.4"
     },
     "require-dev": {
         "orchestra/testbench": "^5.5",
         "phpunit/phpunit": "^9.3"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/aidan-casey/model"
-        }
-    ],
     "extra": {
         "laravel": {
             "providers": [
