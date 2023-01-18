@@ -17,7 +17,7 @@
     "license": "MIT",
     "require": {
         "anteris-dev/autotask-client": "^0.5",
-        "illuminate/support": "^7.0|^8.0",
+        "illuminate/support": "^7.0|^8.0|^9.0",
         "jenssegers/model": "^1.4"
     },
     "require-dev": {
